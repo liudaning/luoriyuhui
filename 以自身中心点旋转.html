@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				background: darksalmon;
+			}
+			#can{
+				background: palegoldenrod;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var oC=document.getElementById('can');
+				var gd=oC.getContext('2d');
+				var linear=gd.createLinearGradient(0,0,200,200);
+				linear.addColorStop(0,'red');
+				linear.addColorStop(0.5,'blue');
+				linear.addColorStop(0,'yellow');
+				gd.strokeStyle=linear;
+				var d=0;
+				setInterval(function(){
+					gd.clearRect(0,0,oC.width,oC.height);
+					gd.save();
+					gd.translate(200,150);
+					gd.rotate(a2d(d++));
+					gd.strokeRect(-100,-50,200,100);
+					gd.restore();
+				},100)
+				
+				function a2d(n)
+				{
+					return n*Math.PI/180;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<canvas width="800" height="600" id="can"></canvas>
+	</body>
+</html>

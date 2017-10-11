@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				background: #000000;
+			}
+			#can{
+				background: #FFFFFF;
+			}
+		</style>
+		<script>
+				window.onload=function()
+				{
+					var oC=document.getElementById('can');
+					var gd=oC.getContext('2d');
+					var x1=200;
+						y1=200;
+						w=200;
+						h=100;
+					gd.fillStyle='hotpink';
+					gd.fillRect(x1,y1,w,h);
+					
+					oC.onmousedown=function(ev)
+					{
+						var oEvent=ev || event;
+						if(oEvent.clientX>x1&&oEvent.clientX<x1+w&&oEvent.clientY>y1&&oEvent.clientY<y1+h)
+						{
+							
+							var disX=oEvent.clientX-x1;
+							var disY=oEvent.clientY-y1;
+							document.onmousemove=function(ev)
+							{
+								var oEvent=ev || event;
+								var x=oEvent.clientX-disX;
+								var y=oEvent.clientY-disY;
+								gd.clearRect(0,0,oC.width,oC.height);
+								gd.fillRect(x,y,w,h);
+								gd.fill();
+							}
+							document.onmouseup=function ()
+							{
+								document.onmousemove=null;
+								document.onmouseup=null;	
+							};
+						}
+						
+					}
+					
+				}
+		</script>
+	</head>
+	<body>
+		<canvas width="800" height="600" id="can"></canvas>
+	</body>
+</html>
