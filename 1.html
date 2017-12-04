@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>测试题</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			ul{
+				width: 380px;
+				height: 100px;
+				margin: 20px auto;
+				position: relative;
+			}
+			ul li{
+				width: 95px;
+				height: 25px;
+				border: 1px inset #e5e5e5;
+				font-size: 12px;
+				text-align: center;
+				line-height: 25px;
+				float: left;
+				box-sizing: border-box;
+			}
+			.div1{
+				color: #666; 
+			}
+			.div2{
+				background: #108ee9;
+				color: #fff;
+			}
+			.div3{
+				border: 1px inset #D0021B;
+				color: #d0021b;
+				position: absolute;
+				right: 0;
+				top: 40px;
+			}
+		</style>
+		<script>
+			window.onload=function()
+			{
+				var ozz=document.querySelector('.div3');
+				var arr= [{"name":"待接单","status":"WAIT_ACCEPT","isShadowed":true},{"name":"待发货","status":"WAIT_DELIVER","isShadowed":true,"isCurrentStatus":true},{"name":"验货入库","status":"STOCK_IN"},{"name":"已完成","status":"DELIVERED"}];
+				for (var i=0; i<arr.length; i++) {
+					if (arr[i].isShadowed==arr[i].isCurrentStatus==true) {
+						this.style.background=#108ee9;
+						this.style.color=#fff;;
+					}
+					if (!(arr[i].indexOf(isShadowed)==-1) && !(arr[i].indexOf(isShadowed)==-1)) {
+						return ozz.style;
+					}
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li class="div1">草 稿</li>
+			<li class="div2">待审核</li>
+			<li class="div1">待复核</li>
+			<li class="div1">已核准</li>
+			<li class="div3">已终止</li>
+		</ul>
+	</body>
+</html>
